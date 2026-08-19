@@ -1,0 +1,27 @@
+/* Selecciona todos los títulos principales (h1) de la página */
+h1 {
+  color: rgb(80, 56, 237); /* Cambia el color del texto a un tono azul/morado */
+  text-align: center;      /* Centra el texto horizontalmente en la pantalla */
+}
+
+/* Selecciona el elemento que tenga el identificador único "FORMULARIOS" */
+#FORMULARIOS {
+  background-color: rgb(223, 245, 245); /* Establece un fondo azul claro/verdoso */
+  width: 400px;                         /* Define el ancho fijo del contenedor en 400 píxeles */
+  margin: 100px;                        /* Crea un espacio externo de 100 píxeles alrededor del contenedor */
+  padding: 100px;                       /* Crea un espacio interno de 100 píxeles entre el contenido y el borde */
+  border: 10px solid #494749;           /* Añade un borde de 10 píxeles, sólido y de color gris oscuro */
+}
+
+/* Selecciona todos los párrafos (p) de la página */
+p {
+  color: rgb(212, 108, 11);                             /* Cambia el color del texto a un tono naranja */
+  font-style: oblique;                                  /* Inclina el texto (estilo oblicuo/itálica) */
+  font-family: Georgia, 'Times New Roman', Times, serif; /* Define la tipografía, usando alternativas si no están instaladas */
+  font-size: 15px;                                      /* Establece el tamaño de la letra en 15 píxeles */
+}
+
+/* Selecciona el cuerpo completo de la página (body) */
+body {
+  background-color: rgb(104, 135, 193); /* Cambia el color de fondo de toda la web a un azul suave */
+}
