@@ -1,33 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Roger Genaro</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PELUQUERÍA MARIAM | Catálogo de Cortes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>FORMULARIOS EN HTML</h1>
-    <div id="FORMULARIOS">
-        <form action="">
-            <p>NOMBRE:</p>
-            <input type="text">
-            <p>APELLIDO:</p>
-            <input type="text">
-            <p>EDAD:</p>
-            <input type="number">
-            <p>FECHA:</p>
-            <input type="date">
-            <p>VARON:</p>
-            <input type="radio">
-            <p>MUJER:</p>
-            <input type="radio">
-            <p>SUBIR UN ARCHIVO:</p>
-            <input type="file">
-            <br>
-            <br><br><br><br>
-            <input type="button" value="ENVIAR DATOS">
 
-        </form>
+  <!-- Cabecera limpia y neutra -->
+  <header class="magazine-header">
+    <span class="header-kicker">CATÁLOGO UNISEX</span>
+    <h1 class="magazine-title">PELUQUERÍA MARIAM</h1>
+    <p class="magazine-subtitle">Selecciona una categoría para explorar los estilos disponibles</p>
+
+    <!-- Selector de categorías (Hombres seleccionado por defecto) -->
+    <nav class="category-nav" aria-label="Categorías de cortes">
+      <button class="tab-btn active" data-category="hombres">Hombres</button>
+      <button class="tab-btn" data-category="ninos">Niños</button>
+      <button class="tab-btn" data-category="damas">Damas</button>
+    </nav>
+  </header>
+
+  <!-- Cuadrícula de la Revista (Solo foto uniforme + botón de WhatsApp) -->
+  <main class="magazine-grid" id="galleryGrid">
+    <!-- Las 100 tarjetas de la categoría seleccionada se generan desde app.js -->
+  </main>
+
+  <!-- Visor de pantalla completa (Lightbox) -->
+  <div class="lightbox-modal" id="lightboxModal" aria-hidden="true">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Cerrar vista completa">&times;</button>
+    <div class="lightbox-content">
+      <img id="lightboxImg" src="" alt="Vista previa del corte">
+      <div class="lightbox-footer">
+        <span id="lightboxCaption">Corte #001</span>
+        <a id="lightboxWhatsapp" href="#" target="_blank" rel="noopener noreferrer" class="whatsapp-btn lightbox-wa-btn">
+          Quiero este corte
+        </a>
+      </div>
     </div>
+  </div>
+
+  <!-- Botón flotante para volver arriba -->
+  <button id="scrollTopBtn" title="Subir">&uarr;</button>
+
+  <footer class="magazine-footer">
+    <p>&copy; 2026 PELUQUERÍA MARIAM &bull; Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="app.js"></script>
 </body>
 </html>

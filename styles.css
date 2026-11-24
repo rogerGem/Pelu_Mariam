@@ -1,0 +1,332 @@
+:root {
+  /* Paleta inspirada en el letrero de Peluquería Mariam */
+  --bg-page: #f2f5f8;         /* Gris hielo muy suave (fondo del cartel) */
+  --bg-surface: #ffffff;      /* Blanco puro */
+  --ink-primary: #16191d;     /* Negro carbón (siluetas y bordes) */
+  --ink-secondary: #525d68;   /* Gris pizarra neutro */
+  --brand-steel: #233b54;     /* Azul acero profundo (detalle curvo del cartel) */
+  --brand-steel-hover: #355678;
+  --border-subtle: #d8e0e8;
+  --whatsapp-green: #1fa855;
+  --whatsapp-hover: #178a44;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-page);
+  color: var(--ink-primary);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.5;
+}
+
+/* Cabecera Editorial Neutra */
+.magazine-header {
+  background-color: var(--bg-surface);
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 36px 20px 28px;
+  text-align: center;
+  box-shadow: 0 2px 12px rgba(22, 25, 29, 0.04);
+}
+
+.header-kicker {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  color: var(--brand-steel);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.magazine-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--ink-primary);
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+
+.magazine-subtitle {
+  font-size: 0.9rem;
+  color: var(--ink-secondary);
+  margin-bottom: 24px;
+}
+
+/* Botones de Categoría */
+.category-nav {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.tab-btn {
+  background-color: var(--bg-page);
+  color: var(--ink-primary);
+  border: 1.5px solid var(--border-subtle);
+  padding: 11px 28px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.tab-btn:hover {
+  border-color: var(--brand-steel);
+  color: var(--brand-steel);
+}
+
+.tab-btn.active {
+  background-color: var(--brand-steel);
+  border-color: var(--brand-steel);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(35, 59, 84, 0.22);
+}
+
+/* Cuadrícula tipo Revista */
+.magazine-grid {
+  max-width: 1320px;
+  margin: 32px auto 60px;
+  padding: 0 18px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+
+/* Tarjeta minimalista: Solo foto uniforme + Botón WhatsApp */
+.look-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 3px 10px rgba(22, 25, 29, 0.04);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.look-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 22px rgba(35, 59, 84, 0.12);
+}
+
+/* Contenedor de imagen con tamaño estrictamente uniforme */
+.image-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4; /* Todas las fotos tendrán exactamente la misma proporción */
+  background-color: #e4e9ef;
+  overflow: hidden;
+  cursor: zoom-in;
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Recorta proporcionalmente sin deformar */
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.look-card:hover .image-wrapper img {
+  transform: scale(1.03);
+}
+
+/* Etiqueta discreta con el número de corte */
+.look-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: rgba(22, 25, 29, 0.78);
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 9px;
+  border-radius: 4px;
+  letter-spacing: 0.5px;
+  pointer-events: none;
+}
+
+/* Pie de tarjeta con el botón */
+.card-action {
+  padding: 12px;
+  background-color: var(--bg-surface);
+}
+
+.whatsapp-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 11px 14px;
+  background-color: var(--ink-primary);
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  border-radius: 5px;
+  transition: background-color 0.25s ease;
+}
+
+.whatsapp-btn:hover {
+  background-color: var(--whatsapp-green);
+}
+
+.whatsapp-btn svg {
+  width: 17px;
+  height: 17px;
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
+/* Modal Lightbox (Pantalla completa al dar clic en la foto) */
+.lightbox-modal {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(15, 18, 22, 0.94);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.lightbox-modal.open {
+  display: flex;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 18px;
+  right: 24px;
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: 2.6rem;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 1002;
+}
+
+.lightbox-content {
+  max-width: 92vw;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.lightbox-content img {
+  max-width: 100%;
+  max-height: 76vh;
+  object-fit: contain;
+  border-radius: 6px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5);
+}
+
+.lightbox-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+  max-width: 420px;
+  background-color: var(--bg-surface);
+  padding: 10px 14px;
+  border-radius: 6px;
+}
+
+#lightboxCaption {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--ink-primary);
+  white-space: nowrap;
+}
+
+.lightbox-wa-btn {
+  background-color: var(--whatsapp-green);
+  padding: 9px 14px;
+  font-size: 0.78rem;
+}
+
+.lightbox-wa-btn:hover {
+  background-color: var(--whatsapp-hover);
+}
+
+/* Botón subir */
+#scrollTopBtn {
+  position: fixed;
+  bottom: 22px;
+  right: 22px;
+  width: 42px;
+  height: 42px;
+  background-color: var(--brand-steel);
+  color: #ffffff;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: none;
+  z-index: 90;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+#scrollTopBtn:hover {
+  background-color: var(--ink-primary);
+}
+
+/* Pie de página */
+.magazine-footer {
+  background-color: var(--bg-surface);
+  border-top: 1px solid var(--border-subtle);
+  text-align: center;
+  padding: 24px 16px;
+  font-size: 0.82rem;
+  color: var(--ink-secondary);
+}
+
+/* Diseño Responsivo (Tablet y Móvil) */
+@media (max-width: 1024px) {
+  .magazine-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+}
+
+@media (max-width: 720px) {
+  .magazine-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    padding: 0 12px;
+  }
+
+  .tab-btn {
+    padding: 9px 18px;
+    font-size: 0.8rem;
+  }
+
+  .card-action {
+    padding: 8px;
+  }
+
+  .whatsapp-btn {
+    padding: 9px 8px;
+    font-size: 0.72rem;
+    gap: 5px;
+  }
+}
